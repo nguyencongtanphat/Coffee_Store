@@ -89,7 +89,7 @@ function DetailPage() {
         console.log("item: ", item);
         cartDispatch(addNewProductCart(item));
         //update cart
-        const response = await createAxiosInstance().get(`cart/${appState.id}`);
+        const response = await createAxiosInstance().get(`api/cart/${appState.id}`);
         console.log("cart response:", response);
         const listCart = response.data.data;
         cartDispatch(fetchCartFromServer(listCart));

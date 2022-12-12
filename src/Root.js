@@ -19,7 +19,7 @@ const Root = () => {
      async function fetchData() {
        if (appState.isLogin) {
          const response = await createAxiosInstance().get(
-           `cart/${appState.id}`
+           `api/cart/${appState.id}`
          );
          const listCart = response.data.data;
          cartDispatch(fetchCartFromServer(listCart));

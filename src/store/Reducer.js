@@ -60,7 +60,7 @@ const CartReducer =  (currentState, action) =>{
         console.log("new product:", product);
         //post new product to cart
          createAxiosInstance()
-           .post("cart", {
+           .post("api/cart", {
              ...product,
            })
            .then(function (response) {

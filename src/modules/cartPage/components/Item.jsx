@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import { FormatterService } from "../../../service";
 
 function Item(props) {
-  const { Price, Quantity, Size, id, isChecked } = props.itemInfo;
+  const { Price, Quantity, Size, id, isChecked, Image, Name } = props.itemInfo;
   const { updateSumBill, toggleItem } = props;
-  const { Image, Name } = props.itemInfo.Item;
+  
   const checkbox = useRef("");
 
   let productPrice = Number(Price);
