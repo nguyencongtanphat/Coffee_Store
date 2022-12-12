@@ -1,0 +1,10 @@
+.swiper-pagination-bullet-active {
+    background-color: grey !important;
+}
+.swiper-pagination-bullet {
+    background-color: #F7D08A;
+    display: inline-block;
+    position: relative;
+    bottom: 15px;
+    margin-right: 10px;
+ }

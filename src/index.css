@@ -1,0 +1,58 @@
+* {
+  font-family: 'Lexend';
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html{
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+::selection{
+  background:rgb(138, 91, 5);
+  color: white;
+}
+@font-face{
+  font-family: "Lexend";
+  src: local("Lexend"), url("./assests/fonts/Lexend/Lexend-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face{
+  font-family: "MsMadi";
+  src: local("MsMadi"), url("./assests/fonts/Ms_Madi/MsMadi-Regular.ttf") format("truetype");
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 0.15em solid #E5890A;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #E5890A;
+  position: relative;
+}
+
+input:checked::before {
+  content: "✓";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}

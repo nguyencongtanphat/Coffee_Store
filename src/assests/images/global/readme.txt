@@ -1,0 +1,1 @@
+folder này chưa ảnh các ảnh chung cho cả app
