@@ -21,7 +21,8 @@ function BlogDetailPage() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(HttpService.appUrl + `/blog/${blogId}`);
+      const response = await createAxiosInstance().get(`api/blog/${blogId}`);
+    //const response = await axios.get(HttpService.appUrl + `api/blog/${blogId}`);
       setDtInfo(response.data.data);
       console.log("thongtinBlog", response.data.data);
     }

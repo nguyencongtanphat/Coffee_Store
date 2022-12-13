@@ -21,13 +21,13 @@ function HomePage() {
 
   // FETCH DATA BLOG LIST
   const [blogList, setBlogList] = useState([])
-  // useEffect(() => {
-  //     async function fetchData() {
-  //         const response = await createAxiosInstance().get('/blog');
-  //         setBlogList(response.data.data)    
-  //     }
-  //     fetchData();
-  //   }, []);
+  useEffect(() => {
+      async function fetchData() {
+          const response = await createAxiosInstance().get('api/blog');
+          setBlogList(response.data.data)    
+      }
+      fetchData();
+    }, []);
     
   return (
     <div>

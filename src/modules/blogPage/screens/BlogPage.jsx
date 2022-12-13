@@ -13,7 +13,7 @@ export default function BlogPage(props) {
    const navigate = useNavigate();
   useEffect(() => {
     async function fetchData() {
-      const response = await createAxiosInstance().get("/blog");
+      const response = await createAxiosInstance().get("api/blog");
 
       setBlogList(response.data.data);
     }
@@ -25,7 +25,7 @@ export default function BlogPage(props) {
   console.log("dhasdjahfjdhasf:", blogList);
   useEffect(() => {
     async function fetchData() {
-      const response = await createAxiosInstance().get("/blog/newest");
+      const response = await createAxiosInstance().get("api/blog/6");
       console.log(response.data.data);
       let content = response.data.data;
       setNewest(content);
