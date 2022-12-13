@@ -1,4 +1,5 @@
-import { createAxiosInstance } from "../service";
+import axios from "axios";
+import HttpService, { createAxiosInstance, errorNoti } from "../service";
 import { ADD_NEW_CART_PRODUCT, DELETE_PRODUCT_FROM_CART, FETCH_CART_FROM_SERVER, SET_STATE_LOGIN, SET_STATE_LOGOUT, UPDATE_STATE_UPDATE } from "./Constant";
 
 const initAppState = {
@@ -59,28 +60,32 @@ const CartReducer =  (currentState, action) =>{
         const product = action.payload;
         console.log("new product:", product);
         //post new product to cart
-         createAxiosInstance()
-           .post("api/cart", {
-             ...product,
-           })
-           .then(function (response) {
-            
-             const newItem = response.data.data;
-              console.log("new product: ", newItem);
-              let index = currentState.findIndex(e => e.id === newItem.id);
-              let newListCart = []; 
-              if(index!==-1){
-                currentState[index]=newItem;
-                newListCart = currentState;
-              }else{
-                newListCart = [newItem, ...currentState];
-              }
-              console.log("cartListNew:", newListCart);
-              return newListCart;
-           })
-           .catch(function (error) {
-             console.log(error);
-           });
+        //  createAxiosInstance()
+        //    .post("api/cart", {
+        //      ...product,
+        //    })
+        const url = HttpService.appUrl + "/api/cart";
+        console.log("url", url)
+        axios
+          .post(url, product)
+          .then(function (response) {
+            const newItem = response.data.data;
+            console.log("new product: ", newItem);
+            let index = currentState.findIndex((e) => e.id === newItem.id);
+            let newListCart = [];
+            if (index !== -1) {
+              currentState[index] = newItem;
+              newListCart = currentState;
+            } else {
+              newListCart = [newItem, ...currentState];
+            }
+            console.log("cartListNew:", newListCart);
+            return newListCart;
+          })
+          .catch(function (error) {
+            console.log("Đã có lỗi xảy " + error);
+            errorNoti("Đã có lỗi xảy " + error);
+          });
            //update state
 
            

@@ -20,6 +20,7 @@ export default function ConfirmPage() {
   const userPhone = useRef("");
   const userAddress = useRef("");
 
+
   //hàm check valid
   const isValid = (input) => {
     let className = input.current.className;
@@ -70,7 +71,7 @@ export default function ConfirmPage() {
   }
   console.log("uselocation data", listProducts);
   const [appState] = useContext(UserContext);
-  console.log("dataInfo", appState);
+  console.log("dataUserInfo", appState);
   const [totalAmount, setTotalAmount] = useState(0);
   const ship = 15000;
   const [, cartDispatch] = useContext(CartContext);
@@ -101,7 +102,7 @@ export default function ConfirmPage() {
           CustomerType: "Non-Member",
         };
         const responseOrder = await createAxiosInstance().post(
-          `order/create`,
+          `api/order/create`,
           orderInfo
         );
        orderSuccessHandler(responseOrder.data.Order.id);
@@ -138,14 +139,14 @@ export default function ConfirmPage() {
         console.log("thong tin trc khi gui:", orderInfo);
         //post new order to db
         const responseOrder = await createAxiosInstance().post(
-          `order/create`,
+          `api/order/create`,
           orderInfo
         );
-        console.log("thong tin don hang sau khi gui:", responseOrder.data.Order.id);
+        console.log("thong tin don hang sau khi gui:", responseOrder);
         //delete product from cart db
         const listIdDeleted = listProducts.map(item => item.id)
         console.log("listIdDelete: " + listIdDeleted)
-        const response = await createAxiosInstance().delete("cart", {
+        const response = await createAxiosInstance().delete("api/cart", {
           data: {
             IDs: listIdDeleted,
           },
@@ -155,11 +156,15 @@ export default function ConfirmPage() {
         //update cart state
         cartDispatch(deleteProductCart(listProducts));
 
-        orderSuccessHandler(responseOrder.data.Order.id);
+        orderSuccessHandler(responseOrder.data.data);
       } catch (e) {
+        console.log(
+          "Đã có lỗi xảy ra trong quá trình đặt xin hay thử lại trong giây lát " +
+            e
+        );
         errorNoti(
           "Đã có lỗi xảy ra trong quá trình đặt xin hay thử lại trong giây lát " +
-            e.message
+            e
         );
       }
     }

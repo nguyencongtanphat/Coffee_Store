@@ -19,7 +19,7 @@ function DetailOrder() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await createAxiosInstance().get(`/order/${orderId}`);
+      const response = await createAxiosInstance().get(`api/order/${orderId}`);
       console.log("response", response.data.Orders);
       setDtInfo(response.data.Orders);
     }

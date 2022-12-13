@@ -108,7 +108,7 @@ function CartPage() {
       const isConfirm = window.confirm("Bạn có chắc chắn muốn xóa")
       if(isConfirm){
         const listIdDeleted = listCartSelected.map((item) => item.id);
-        const response = await createAxiosInstance().delete("cart", {
+        const response = await createAxiosInstance().delete("api/cart", {
           data: {
             IDs: listIdDeleted,
           },

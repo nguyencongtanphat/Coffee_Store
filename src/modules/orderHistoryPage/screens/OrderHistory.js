@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import PageTitle from '../../../globalComponents/PageTitle.jsx'
-import { createAxiosInstance } from '../../../service.js'
+import { createAxiosInstance, errorNoti } from '../../../service.js'
 import OrderSummary from '../components/OrderSummary.js'
 import { useContext } from 'react'
 import { UserContext } from '../../../store/Context'
 import sad_face from '../../../assests/images/global/empty_cart.png'
 import AppButton from "../../../globalComponents/AppButton";
 import { Link } from "react-router-dom";
+import LoadingSpinner from '../../../globalComponents/LoadingSpinner.jsx'
 
 const OrderHistory = () => {
-    const [ordersByUser, setOrdersByUser] = useState([])
+    const [ordersByUser, setOrdersByUser] = useState(null)
     const [appState, dispatch] = useContext(UserContext);
 
+    console.log("customerInfo:", appState);
     const GetOrdersByUser = async () => {
-        console.log("fetch data customer id:", appState.id)
-        const response = await createAxiosInstance().get(
-            `order/customer/${appState.id}`
-        )
-        console.log("response", response)
-        setOrdersByUser(response.data.Orders.reverse());
+      try{
+        if (appState.id){
+          console.log("call Api with appState id: " + appState.id)
+          const response = await createAxiosInstance().get(
+            `api/order/customer/${appState.id}`
+          );
+          console.log("response", response);
+          setOrdersByUser(response.data.Orders.reverse());
+        }
+      }catch(e){
+        errorNoti("Đã có lỗi xảy ra " + e)
+      }
+        
     }
 
     const FormatDate = (date) => {
@@ -35,10 +44,11 @@ const OrderHistory = () => {
 
     useEffect(() => {
         GetOrdersByUser()
-    }, [])
+    }, [appState])
 
     console.log("fjdhfjahsjfhasjkhd", ordersByUser);
     return (
+      ordersByUser ?
       <div>
         <PageTitle title="LỊCH SỬ MUA HÀNG" className="my-8" />
         {ordersByUser.length > 0 ? (
@@ -66,7 +76,7 @@ const OrderHistory = () => {
             </Link>
           </div>
         )}
-      </div>
+      </div> :<LoadingSpinner/> 
     );
 }
 

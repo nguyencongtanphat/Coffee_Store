@@ -22,7 +22,7 @@ const OrderSummary = (props) => {
           </p>
         </div>
         <div className="flex ml-16">
-          <img src={orderImg} className="lg:w-28 lg:h-28" alt="" />
+          <img src={orderImg} className="w-28 h-28" alt="" />
           <div className="ml-4">
             {props.orderInfo.DetailOrder.map((orderProduct) => (
               <OrderItemSummary
