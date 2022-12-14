@@ -27,9 +27,7 @@ export default function PersonalInfoPage() {
       setTogglePopup(prev=>!prev);
    };
 
-   useEffect(()=>{
-      console.log("user State", appState)
-   },[appState])
+   console.log("app state: ", appState)
 
   const updateSuccessHandler = (response)=>{
     const data = response.data;
@@ -55,8 +53,9 @@ export default function PersonalInfoPage() {
          Password: passwordInput.current.value.trim(),
        };
        
+       console.log("info Update:", newUserInfor);
        const response = await createAxiosInstance().post(
-         "/user/update",
+         "api/user/update",
          newUserInfor
        );
       updateSuccessHandler(response);

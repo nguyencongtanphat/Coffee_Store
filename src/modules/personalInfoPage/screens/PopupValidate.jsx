@@ -46,7 +46,7 @@ function PopupValidate(props) {
           Password: passwordInput.current.value,
         };
         const response = await createAxiosInstance().post(
-          "/user/login",
+          "api/user/login",
           userInfo
         );
         return successValidateHandler(response.data);
