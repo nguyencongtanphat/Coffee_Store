@@ -20,7 +20,7 @@ function DetailOrder() {
   useEffect(() => {
     async function fetchData() {
       const response = await createAxiosInstance().get(`api/order/${orderId}`);
-      console.log("response", response.data.Orders);
+      console.log("response", response.data);
       setDtInfo(response.data.Orders);
     }
     fetchData();
@@ -37,7 +37,7 @@ function DetailOrder() {
 
     return dd + "/" + mm + "/" + yyyy;
   };
-
+  console.log("data info:", dtInfo);
   return Object.keys(dtInfo).length !== 0 ? (
     <div className="w-full relative">
       <img
@@ -53,10 +53,9 @@ function DetailOrder() {
       <div className="flex flex-col items-center p-2">
         <PageTitle title="Chi tiết đơn hàng"></PageTitle>
         <div className="lg:ml-[-460px]">
-          
           <p className="text-b11 md:text-b9 text-grey200 flex my-2 lg:mx-0">
             Ngày:&nbsp;
-            <span className="text-orange">{FormatDate(dtInfo.createdAt)}</span>
+            <span className="text-orange">{FormatDate(dtInfo.created_at)}</span>
           </p>
           <p className="text-b11 md:text-b9 text-grey200 flex my-2 lg:mx-0">
             Số điện thoại:&nbsp;
@@ -90,7 +89,7 @@ function DetailOrder() {
       </div>
     </div>
   ) : (
-    <LoadingSpinner/>
+    <LoadingSpinner />
   );
 }
 
