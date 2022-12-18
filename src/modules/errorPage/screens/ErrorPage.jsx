@@ -3,6 +3,7 @@ import React from "react";
 import Error from "../../../assests/images/error/Error.png";
 import AppButton from "../../../globalComponents/AppButton";
 
+// Error Page
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
