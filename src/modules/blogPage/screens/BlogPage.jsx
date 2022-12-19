@@ -68,6 +68,7 @@ export default function BlogPage(props) {
               })}
             </div>
 
+
             <img
               src={leafBgR}
               alt=""
