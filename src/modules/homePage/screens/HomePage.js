@@ -4,7 +4,6 @@ import NewProduct from '../components/NewProduct'
 import BlogSlider from '../components/BlogSlider'
 import BestSeller from '../components/BestSeller'
 import HttpService, { createAxiosInstance } from "../../../service";
-import axios from "axios";
 
 function HomePage() {
   const [bestSellerArray,setBestSellerArray] = useState([])
@@ -28,6 +27,7 @@ function HomePage() {
       }
       fetchData();
     }, []);
+    
     
   return (
     <div>

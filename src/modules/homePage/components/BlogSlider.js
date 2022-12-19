@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import BlogSummary from "../../../globalComponents/BlogSummary";
-import first_thumbnail from "../../../assests/images/home/blogs/first_thumbnail_blog.png";
-import second_thumbnail from "../../../assests/images/home/blogs/second_thumbnail_blog.png";
-import third_thumbnail from "../../../assests/images/home/blogs/third_thumbnail_blog.png";
 import { Autoplay, Pagination } from "swiper";
-import HttpService, { createAxiosInstance } from "../../../service";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import "swiper/css";
