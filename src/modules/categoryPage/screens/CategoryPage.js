@@ -3,8 +3,7 @@ import PageTitle from "../../../globalComponents/PageTitle";
 import SearchBar from "../components/SearchBar";
 import SortDropdown from "../components/SortDropdown";
 import ProductCard from "../../../globalComponents/ProductCard";
-import HttpService, { createAxiosInstance } from "../../../service";
-import axios from "axios";
+import { createAxiosInstance } from "../../../service";
 import LoadingSpinner from "../../../globalComponents/LoadingSpinner";
 import sad_face from '../../../assests/images/error/sad_face.png'
 const CategoryPage = (props) => {
@@ -20,8 +19,7 @@ const CategoryPage = (props) => {
     }
 
     async function FetchData() {
-        console.log("here");
-        //const response = await axios.get(HttpService.appUrl + `api/menu/categories/${props.type}`)
+        
         const response = await createAxiosInstance().get(
           `api/menu/categories/${props.type}`
         );
