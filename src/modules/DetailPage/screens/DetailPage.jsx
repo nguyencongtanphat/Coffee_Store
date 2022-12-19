@@ -47,7 +47,6 @@ function DetailPage() {
   }, [dtInfo.MPrice, dtInfo.SPrice, dtInfo.LPrice, size]);
 
   const changeSize = (sz) => {
-    console.log(sz);
     setSize(() => sz);
   };
 
@@ -70,7 +69,6 @@ function DetailPage() {
       Status: "InCart",
       id: 7
     };
-    console.log("item_buy_now: ", itemBuyNow);
     navigate("/confirm", {
       state: [itemBuyNow],
     });
@@ -86,11 +84,9 @@ function DetailPage() {
           CustomerID: appState.id,
           Quantity: number,
         };
-        console.log("item: ", item);
         cartDispatch(addNewProductCart(item));
         //update cart
         const response = await createAxiosInstance().get(`api/cart/${appState.id}`);
-        console.log("cart response:", response);
         const listCart = response.data.data;
         cartDispatch(fetchCartFromServer(listCart));
         successNoti("Đã thêm vào giỏ hàng thành công!!!");
