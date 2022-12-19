@@ -9,23 +9,21 @@ import sad_face from '../../../assests/images/error/sad_face.png'
 const CategoryPage = (props) => {
     const [productsByCategory, setProductsByCategory] = useState([])
     const [filterProducts, setFilteredProducts] = useState([])
-
     function ComparePrice(a, b) {
         return b.SPrice - a.SPrice
     }
-
-    function FilterProducts(filteredProducts) {
-        setFilteredProducts(filteredProducts)
-    }
-
     async function FetchData() {
         
         const response = await createAxiosInstance().get(
           `api/menu/categories/${props.type}`
         );
-        console.log("response Product:", response.data.data)
         setProductsByCategory(response.data.data.sort(ComparePrice));
         setFilteredProducts(response.data.data.sort(ComparePrice));
+    }
+
+
+    function FilterProducts(filteredProducts) {
+        setFilteredProducts(filteredProducts)
     }
 
     useEffect(() => {
