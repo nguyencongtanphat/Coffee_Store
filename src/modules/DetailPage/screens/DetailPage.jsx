@@ -30,8 +30,8 @@ function DetailPage() {
   //fetchData
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(
-        HttpService.appUrl + `/menu/products/${productId}`
+      const response = await createAxiosInstance.get(
+        `api/menu/products/${productId}`
       );
       setDtInfo(response.data.data);
        setPrice(dtInfo.SPrice);console.log("thong tin san pham", response.data.data);
