@@ -1,5 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+AppButton2.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  icon: PropTypes.any,
+};
+
+AppButton2.defaultProps = {
+  text: "default text",
+};
+
 function AppButton2({ icon, text, onClick, className, isActive }) {
   return (
     <button
@@ -20,16 +32,5 @@ function AppButton2({ icon, text, onClick, className, isActive }) {
     </button>
   );
 }
-
-AppButton2.propTypes = {
-  text: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  icon: PropTypes.any,
-};
-
-AppButton2.defaultProps = {
-  text: "default text",
-};
 
 export default AppButton2;

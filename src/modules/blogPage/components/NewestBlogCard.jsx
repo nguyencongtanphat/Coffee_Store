@@ -1,5 +1,4 @@
 import React from 'react'
-import image20 from "../../../assests/images/blogPage/image20.png"
 import { useNavigate } from "react-router-dom";
 export default function NewestBlogCard(props){
     const navigate = useNavigate();

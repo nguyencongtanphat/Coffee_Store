@@ -1,4 +1,4 @@
-import { string } from 'prop-types'
+
 import React from 'react'
 
 function formatSubString(content, num){

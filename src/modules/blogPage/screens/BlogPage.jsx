@@ -8,6 +8,7 @@ import leafBgL from "../../../assests/images/global/leaf-bg-left.png";
 import LoadingSpinner from "../../../globalComponents/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 
+
 export default function BlogPage(props) {
   const [blogList, setBlogList] = useState([]);
    const navigate = useNavigate();
@@ -22,11 +23,9 @@ export default function BlogPage(props) {
 
   const [newest, setNewest] = useState({});
   const [subContent, setSubContent] = useState("");
-  console.log("dhasdjahfjdhasf:", blogList);
   useEffect(() => {
     async function fetchData() {
       const response = await createAxiosInstance().get("api/blog/6");
-      console.log(response.data.data);
       let content = response.data.data;
       setNewest(content);
       setSubContent(content.Content[0].Paragraphs[0].Content);
@@ -68,6 +67,7 @@ export default function BlogPage(props) {
                 );
               })}
             </div>
+
 
             <img
               src={leafBgR}

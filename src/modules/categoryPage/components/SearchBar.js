@@ -6,10 +6,12 @@ const SearchBar = (props) => {
     const [stringToSearch,setString] = useState('')
     const [resource,setResource] = useState(props.data)
 
+    // Get data 
     useEffect(() => {
         setResource(props.data)
     },[props.data])
 
+    // Event control
     window.addEventListener('keydown',(event) => {
         if (event.code === 'Enter'){
             props.handleFilter(resource.filter(product => product.Name.toLocaleLowerCase('VN').includes(stringToSearch.toLocaleLowerCase('VN'))))
