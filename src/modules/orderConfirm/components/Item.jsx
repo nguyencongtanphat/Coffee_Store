@@ -1,6 +1,7 @@
 import React from 'react'
 import { FormatterService } from "../../../service";
 
+// Item
 export default function Item({item}) {
   return (
     <div className='flex' key={item.id}>
