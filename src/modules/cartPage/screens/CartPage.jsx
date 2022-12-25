@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { CartContext } from "../../../store/Context";
 import { createAxiosInstance, errorNoti, FormatterService } from "../../../service";
 import { UserContext } from "../../../store/Context";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NotAuthen from "../../../globalComponents/NotAuthen";
 import { deleteProductCart, fetchCartFromServer } from "../../../store/Actions";
 import { faTrash, faCreditCard } from "@fortawesome/free-solid-svg-icons";
@@ -168,6 +168,15 @@ function CartPage() {
           <div className="text-center text-grey100 text-b7 lg:text-b4  mx-auto lg:w-[58rem]">
             <p>Bạn chưa có sản phẩm nào trong cart</p>
             <img className="w-full md:w-2/4" src={emptyCartImg} alt=""></img>
+            
+              <AppButton
+                text={"Quay về trang chủ"}
+                className="bg-brown text-white mx-auto"
+                onClick={()=>{
+                  navigate(`/`);
+                }}
+              />
+           
           </div>
         ) : (
           <Table

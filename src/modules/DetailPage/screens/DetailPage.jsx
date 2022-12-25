@@ -30,7 +30,7 @@ function DetailPage() {
   //fetchData
   useEffect(() => {
     async function fetchData() {
-      const response = await createAxiosInstance.get(
+      const response = await createAxiosInstance().get(
         `api/menu/products/${productId}`
       );
       setDtInfo(response.data.data);

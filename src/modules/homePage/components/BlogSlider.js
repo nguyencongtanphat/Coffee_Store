@@ -31,7 +31,7 @@ const BlogSlider = ({ props }) => {
           CHUYỆN NHÀ
         </p>
         <Swiper
-          className="w-64 pb-8 lg:hidden"
+          className="w-64 pb-8 md:hidden"
           autoplay={{
             delay: 3000,
           }}
@@ -57,7 +57,8 @@ const BlogSlider = ({ props }) => {
             );
           })}
         </Swiper>
-        <div className="hidden lg:flex justify-around">
+
+        <div className="hidden md:flex justify-around">
           {props.map((item, index) => {
             if (index == 0 || index > 3) {
               return;

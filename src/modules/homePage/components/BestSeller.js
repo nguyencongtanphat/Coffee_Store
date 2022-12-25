@@ -8,7 +8,7 @@ const BestSeller = (props) => {
             lg:bg-[url(/src/assests/images/global/leaf-bg-left.png),_url(/src/assests/images/global/leaf-bg-right.png)]
         ">
             <PageTitle title="Best Seller" className="mx-28" />
-            <div className="grid grid-cols-2 justify-items-center lg:grid-cols-4">
+            <div className="grid grid-cols-2 justify-items-center md:grid-cols-3 lg:grid-cols-4">
                 {
                     props.bestSeller.map(item => <ProductCard avtSrc={item.Image}
                         name={item.Name}

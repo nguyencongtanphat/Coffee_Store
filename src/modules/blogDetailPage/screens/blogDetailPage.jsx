@@ -34,7 +34,7 @@ function BlogDetailPage() {
         <img
           src={dtInfo.TitleImage}
           alt="Ảnh blog"
-          className="w-full mx-auto lg:w-[60%]"
+          className="w-full mx-auto md:w-[100%] md:h-[400px] md:object-cover"
         />
       </div>
       <div className="m-[20px] md:mx-[200px] md:my-[50px]">

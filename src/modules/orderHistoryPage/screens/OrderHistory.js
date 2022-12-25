@@ -46,7 +46,6 @@ const OrderHistory = () => {
     GetOrdersByUser();
   }, [appState]);
 
-  console.log("fjdhfjahsjfhasjkhd", ordersByUser);
   return ordersByUser ? (
     <div>
       <PageTitle title="LỊCH SỬ MUA HÀNG" className="my-8" />

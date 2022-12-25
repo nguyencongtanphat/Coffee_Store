@@ -50,7 +50,7 @@ const ProductCard = (props) => {
           src={props.avtSrc}
           alt="This is a product avatar"
           className={`${styles.productImg} w-[8.5rem] my-4 mx-2 max-h-28
-                    lg:m-4 lg:max-h-48 lg:max-w-60 lg:w-60 rounded-2xl`}
+                    lg:m-4 lg:max-h-48 lg:max-w-60 lg:w-60 rounded-2xl object-cover`}
         />
       </div>
 
